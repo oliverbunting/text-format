@@ -30,7 +30,11 @@ import GHC.Types (Int(..))
 # if __GLASGOW_HASKELL__ < 611
 import GHC.Integer.Internals
 # else
+# if __GLASGOW_HASKELL__ < 900
 import GHC.Integer.GMP.Internals
+# else
+import GHC.Integer.GMP.Internals hiding (quotRemInteger)
+# endif
 # endif
 #endif
 
